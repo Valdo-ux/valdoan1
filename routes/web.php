@@ -1,7 +1,13 @@
 <?php
 
+use App\Http\Controllers\P4Suci;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -33,3 +39,10 @@ use App\Http\Controllers\LoginController;
 Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/items', [ItemController::class, 'index']);
+
+Route::get('/list-barang', [P4Suci::class, 'tampilkan']);
+
+// routes/web.php
+Route::get('/resepmakan', function () {
+    return view('resepmakan');
+});
