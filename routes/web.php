@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\P4Suci;
+use App\Http\Controllers\P5Suci;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 
@@ -46,3 +47,5 @@ Route::get('/list-barang', [P4Suci::class, 'tampilkan']);
 Route::get('/resepmakan', function () {
     return view('resepmakan');
 });
+
+Route::get('/P5Suci', [P5Suci::class, 'tampilkan']);
