@@ -39,7 +39,9 @@ Route::get('/listbarang/{id}/{nama}', function($id, $nama){
 Route::get('/list_barang/{id}/{nama}', [ListBarangController::class, 'tampilkan']);
 
 use App\Http\Controllers\LoginController;
+
 Route::get('/login', [LoginController::class, 'index']);
+;
 
 Route::get('/items', [ItemController::class, 'index']);
 
