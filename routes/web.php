@@ -4,6 +4,7 @@ use App\Http\Controllers\P4Suci;
 use App\Http\Controllers\P5Suci;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\LatihanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -49,3 +50,7 @@ Route::get('/resepmakan', function () {
 });
 
 Route::get('/P5Suci', [P5Suci::class, 'tampilkan']);
+
+Route::get('/program_latihan', [LatihanController::class, 'latihan']);
+
+Route::get('/program_latihan2', [LatihanController::class, 'latihan2']);
