@@ -6,6 +6,7 @@ use App\Http\Controllers\P5Zahra;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LatihanController;
+use App\Http\Controllers\FiturController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -59,3 +60,5 @@ Route::get('/P5Zahra', [P5Zahra::class, 'tampilkan']);
 Route::get('/program_latihan', [LatihanController::class, 'latihan']);
 
 Route::get('/program_latihan2', [LatihanController::class, 'latihan2']);
+
+Route::get('/fitur', [FiturController::class, 'index']);
