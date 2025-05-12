@@ -1,28 +1,34 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\P4Suci;
 use App\Http\Controllers\P5Suci;
 use App\Http\Controllers\P5Zahra;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LatihanController;
 use App\Http\Controllers\FiturController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\LoginController;
 
+// ✅ Route ke halaman home
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
 });
 
-
+// ✅ Tetap bisa akses halaman welcome kalau dibutuhkan
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route ::get('/user/{id}', function ($id){
+// ✅ Route tambahan lainnya (biarkan tetap seperti ini)
+Route::get('/products', [ProductController::class, 'showList']);
+
+Route::get('/user/{id}', function ($id){
     return 'User Dengan ID ' .$id;
 });
 
-Route::prefix('admin')->group(function (){
-    Route::get('dashboard', function (){
+Route::prefix('admin')->group(function () {
+    Route::get('dashboard', function () {
         return 'Admin Dashboard';
     });
 
@@ -32,23 +38,17 @@ Route::prefix('admin')->group(function (){
 });
 
 Route::get('/listbarang/{id}/{nama}', function($id, $nama){
-  return view('list_barang', compact('id', 'nama'));
-
+    return view('list_barang', compact('id', 'nama'));
 });
-
 
 Route::get('/list_barang/{id}/{nama}', [ListBarangController::class, 'tampilkan']);
 
-use App\Http\Controllers\LoginController;
-
 Route::get('/login', [LoginController::class, 'index']);
-;
 
 Route::get('/items', [ItemController::class, 'index']);
 
 Route::get('/list-barang', [P4Suci::class, 'tampilkan']);
 
-// routes/web.php
 Route::get('/resepmakan', function () {
     return view('resepmakan');
 });
