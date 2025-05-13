@@ -9,6 +9,12 @@ use App\Http\Controllers\LatihanController;
 use App\Http\Controllers\FiturController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ListBarangController;
+use App\Http\Controllers\NotifikasiController;
+use App\Http\Controllers\ProgresController;
+
+// ✅ Route ke halaman list barang
+Route::get('/list-barang', [ListBarangController::class, 'tampilkan']);
 
 // ✅ Route ke halaman home
 Route::get('/', function () {
@@ -47,7 +53,8 @@ Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/items', [ItemController::class, 'index']);
 
-Route::get('/list-barang', [P4Suci::class, 'tampilkan']);
+// 🟨 DIHAPUS: Route duplikat /list-barang dari P4Suci
+// Route::get('/list-barang', [P4Suci::class, 'tampilkan']);
 
 Route::get('/resepmakan', function () {
     return view('resepmakan');
@@ -62,3 +69,7 @@ Route::get('/program_latihan', [LatihanController::class, 'latihan']);
 Route::get('/program_latihan2', [LatihanController::class, 'latihan2']);
 
 Route::get('/fitur', [FiturController::class, 'index']);
+
+Route::get('/notifikasi', [NotifikasiController::class, 'tampilkan']);
+
+Route::get('/progres', [ProgresController::class, 'progres']);
