@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\P4Suci;
 use App\Http\Controllers\P5Suci;
 use App\Http\Controllers\P5Zahra;
+use App\Http\Controllers\P5Rivaldo;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LatihanController;
 use App\Http\Controllers\FiturController;
@@ -63,6 +64,8 @@ Route::get('/resepmakan', function () {
 Route::get('/P5Suci', [P5Suci::class, 'tampilkan']);
 
 Route::get('/P5Zahra', [P5Zahra::class, 'tampilkan']);
+
+Route::get('/P5Rivaldo', [P5Rivaldo::class, 'tampilkan']);
 
 Route::get('/program_latihan', [LatihanController::class, 'latihan']);
 
