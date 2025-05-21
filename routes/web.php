@@ -9,10 +9,26 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LatihanController;
 use App\Http\Controllers\FiturController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ListBarangController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\ProgresController;
+use App\Http\Controllers\LandingpageController;
+
+
+
+Route::get('/landing', [LandingpageController::class, 'home'])->name('landing');
+Route::prefix('landing')->controller(LandingpageController::class)->group(function (){
+    Route::get('/about', 'about')->name('about');
+    Route::get('/fitur', 'fitur')->name('fitur');
+});
+
+
+
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/daftar', [AuthController::class, 'daftar'])->name('daftar');
+
+
 
 // ✅ Route ke halaman list barang
 Route::get('/list-barang', [ListBarangController::class, 'tampilkan']);
